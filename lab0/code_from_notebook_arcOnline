@@ -1,0 +1,26 @@
+from arcgis.gis import GIS
+gis = GIS("home")
+
+# Item Added From Toolbar
+# Title: shp_trans_forest_roads | Type: Feature Service | Owner: bott0137_UMN
+item = gis.content.get("203c8d2e1afc464d876ffaa051293318")
+item
+
+map1 = gis.map('Atkin County, MN')
+map1
+
+map1.add_layer(item)
+
+from arcgis import features
+
+#access the first layer in ports_item
+roadbuffer = item.layers[0]
+road_buffer30 = features.use_proximity.create_buffers(roadbuffer, distances=[30], units = 'Feet')
+
+type(road_buffer30)
+
+map2 = gis.map('Atkin County, MN')
+map2
+
+map2.add_layer(item)
+map2.add_layer(road_buffer30)
