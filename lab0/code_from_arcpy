@@ -1,0 +1,1 @@
+arcpy.analysis.Buffer("forest_roads", r"C:\Users\swimb\Documents\UMN\fall2022\GIS5571\lab0\Lab0\Lab0.gdb\forest_roads_Buffer30_arcpy", "30 Feet", "FULL", "ROUND", "NONE", None, "PLANAR")
